@@ -7,30 +7,57 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <!-- Sección Hero -->
+    <header class="hero">
         <h1>¡Hola! Soy Manu</h1>
-        <p>Bienvenido a mi portfolio. Aquí encontrarás algunos de mis proyectos de IA.</p>
+        <p>Desarrollador de Inteligencia Artificial apasionado por los datos, los algoritmos y la creación de soluciones innovadoras.</p>
+        <a href="#projects" class="cta">Ver mis proyectos</a>
     </header>
 
+    <!-- Sección de Proyectos -->
     <main>
         <div class="projects">
-            <h2>Proyectos</h2>
+            <h2 id="projects">Proyectos</h2>
             <ul>
-                <li><a href="proyecto1.html">Proyecto 1: Clasificador de Imágenes</a></li>
-                <li><a href="proyecto2.html">Proyecto 2: Predicción de Precios</a></li>
-                <li><a href="proyecto_data_analysis.html">Proyecto 3: Análisis y Predicción de Datos</a></li>
+                <li>
+                    <img src="images/proyecto1.png" alt="Clasificador de Imágenes">
+                    <a href="proyecto1.html">Proyecto 1: Clasificador de Imágenes</a>
+                    <p>Clasificación automática de imágenes utilizando redes neuronales convolucionales.</p>
+                </li>
+                <li>
+                    <img src="images/proyecto2.png" alt="Predicción de Precios">
+                    <a href="proyecto2.html">Proyecto 2: Predicción de Precios</a>
+                    <p>Modelo de regresión para estimar precios basados en datos históricos.</p>
+                </li>
+                <li>
+                    <img src="images/proyecto3.png" alt="Análisis y Predicción de Datos">
+                    <a href="proyecto_data_analysis.html">Proyecto 3: Análisis y Predicción de Datos</a>
+                    <p>Análisis exploratorio de datos y regresión lineal para predicciones.</p>
+                </li>
             </ul>
         </div>
 
-        <div class="contact">
-            <h2>Contacto</h2>
-            <p>garciamanuconde@gmail.com</p>
-        </div>
+        <!-- Sección de Currículum -->
+        <section class="resume">
+            <h2>Currículum</h2>
+            <p>Descarga mi currículum para conocer más sobre mi experiencia y habilidades.</p>
+            <a href="cv.pdf" download class="cta">Descargar CV</a>
+        </section>
     </main>
 
+    <!-- Sección de Contacto -->
+    <div class="contact">
+        <h2>Contacto</h2>
+        <p>garciamanuconde@gmail.com</p>
+    </div>
+
+    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Manu. Todos los derechos reservados.</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/tuperfil" target="_blank">LinkedIn</a>
+            <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+        </div>
     </footer>
 </body>
 </html>
-
