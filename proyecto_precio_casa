@@ -1,0 +1,103 @@
+
+# Importar librerías necesarias
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+# ------------------------ Cargar los datos ------------------------
+# Ruta a los archivos
+train_path = "C:\\Users\\Portatil\\Desktop\\MI PORTFOLIO\\Manucond.github.io\\data\\precio-casa\\train.csv"
+test_path = "C:\\Users\\Portatil\\Desktop\\MI PORTFOLIO\\Manucond.github.io\\data\\precio-casa\\test.csv"
+
+# Cargar los datasets
+train_data = pd.read_csv(train_path)
+test_data = pd.read_csv(test_path)
+
+# ------------------------ Preprocesar los datos ------------------------
+# Eliminar filas con valores nulos en columnas relevantes del train
+train_data.dropna(subset=["GrLivArea", "OverallQual", "GarageCars", "TotalBsmtSF", "SalePrice"], inplace=True)
+
+# Agregar la columna 'HouseAge' (edad de la casa)
+train_data['HouseAge'] = 2024 - train_data['YearBuilt']
+
+# Eliminar filas con valores nulos en columnas relevantes del test
+test_data.dropna(subset=["GrLivArea", "OverallQual", "GarageCars", "TotalBsmtSF"], inplace=True)
+test_data['HouseAge'] = 2024 - test_data['YearBuilt']
+
+# ------------------------ Seleccionar variables ------------------------
+# Variables más influyentes (según el análisis previo)
+features = ['GrLivArea', 'OverallQual', 'GarageCars', 'TotalBsmtSF', 'HouseAge', '1stFlrSF', 'LotArea', 'Fireplaces']
+target = 'SalePrice'
+
+# Crear variables independientes (X) y dependientes (y)
+X_train = train_data[features]
+y_train = train_data[target]
+
+# Preparar el conjunto de prueba (X_test)
+X_test = test_data[features]
+
+# ------------------------ Entrenar el modelo ------------------------
+# Crear y entrenar el modelo de regresión lineal
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# ------------------------ Mostrar resultados del modelo ------------------------
+# Coeficientes del modelo
+print("Coeficientes del modelo:")
+coef = pd.DataFrame(model.coef_, features, columns=['Coeficiente'])
+print(coef)
+
+# Intercepto del modelo
+print("\nIntercepto del modelo:", model.intercept_)
+
+# ------------------------ Predecir con el modelo ------------------------
+# Predecir precios en el conjunto de prueba
+predictions = model.predict(X_test)
+
+# Guardar predicciones en un archivo CSV
+submission = pd.DataFrame({
+    'Id': test_data['Id'],
+    'SalePrice': predictions
+})
+
+#submission.to_csv("C:\\Users\\Portatil\\Desktop\\MI PORTFOLIO\\Manucond.github.io\\data\\precio-casa\\submission.csv", index=False)
+
+print("\nPredicciones guardadas en 'submission.csv'.")
+
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Hacer predicciones en el conjunto de entrenamiento
+train_predictions = model.predict(X_train)
+
+# Calcular métricas
+mse = mean_squared_error(y_train, train_predictions)
+r2 = r2_score(y_train, train_predictions)
+
+import math
+from math import sqrt
+
+mse_raiz = sqrt(mse)
+
+# Mostrar resultados
+print("Evaluación del modelo en el conjunto de entrenamiento:")
+print(f"Error cuadrático medio (MSE): {mse_raiz:.2f}")
+print(f"Coeficiente de determinación (R²): {r2:.2f}")
+
+
+print("///////////////////////////////////////////////////////////////////////////////////////")
+
+from sklearn.ensemble import RandomForestRegressor
+
+# Crear y entrenar el modelo
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+
+# Evaluar en el conjunto de entrenamiento
+train_predictions = rf_model.predict(X_train)
+mse = mean_squared_error(y_train, train_predictions)
+r2 = r2_score(y_train, train_predictions)
+
+mse_raiz = sqrt(mse)
+
+print("Random Forest - Error cuadrático medio (MSE):", mse_raiz)
+print("Random Forest - Coeficiente de determinación (R²):", r2)
