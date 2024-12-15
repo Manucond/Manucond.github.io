@@ -4,25 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto: Análisis y Predicción de Datos</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Proyecto 3: Análisis y Predicción de Datos</h1>
-    <p>Este proyecto carga un dataset, realiza un análisis exploratorio y predice valores con regresión lineal.</p>
-    
-    <h2>Código</h2>
-    <pre>
+    <!-- Sección Hero -->
+    <header class="hero">
+        <h1>Proyecto 3: Análisis y Predicción de Datos</h1>
+        <p>Exploración de datos y predicción mediante regresión lineal.</p>
+        <a href="index.html" class="cta">Volver al inicio</a>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="projects">
+            <h2>Descripción del Proyecto</h2>
+            <p>Este proyecto carga un dataset, realiza un análisis exploratorio y predice valores utilizando regresión lineal.</p>
+            
+            <h2>Código</h2>
+            <pre>
 <code>
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-# Código recortado para la página...
+
+# Cargar datos
+data = pd.read_csv('data.csv')
+X = data[['feature1']]
+y = data['target']
+
+# Modelo de regresión
+model = LinearRegression()
+model.fit(X, y)
+
+# Predicciones
+y_pred = model.predict(X)
+
+# Visualización
+plt.scatter(X, y, color='blue')
+plt.plot(X, y_pred, color='red')
+plt.xlabel('Feature 1')
+plt.ylabel('Target')
+plt.title('Regresión Lineal')
+plt.show()
 </code>
-    </pre>
+            </pre>
 
-    <h2>Resultado esperado</h2>
-    <p>El análisis genera gráficos como histogramas y muestra las predicciones con una gráfica de regresión.</p>
-    <img src="resultados_proyecto3.png" alt="Gráfica de regresión lineal">
+            <h2>Resultado esperado</h2>
+            <img src="images/resultados_proyecto3.png" alt="Gráfica de regresión lineal" style="max-width:100%; border-radius:8px;">
 
-    <p><a href="index.html">Volver al inicio</a></p>
+            <h2>Conclusión</h2>
+            <p>El análisis muestra cómo una regresión lineal puede predecir valores a partir de una característica específica.</p>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Manu. Todos los derechos reservados.</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/tuperfil" target="_blank">LinkedIn</a>
+            <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+        </div>
+    </footer>
 </body>
 </html>

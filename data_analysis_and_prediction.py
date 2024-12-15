@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error
 # Cargar el dataset
 def load_dataset(file_path):
     try:
-        data = pd.read_csv(file_path)
+        data = pd.read_csv("C:\\Users\\Portatil\\Downloads\\housing.csv")
         print("Dataset cargado correctamente:")
         print(data.head())
         return data
