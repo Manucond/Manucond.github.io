@@ -31,7 +31,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+    background: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 
@@ -39,14 +39,14 @@ body {
     font-size: 3rem;
     margin: 0;
     color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para contraste */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
     font-size: 1.2rem;
     margin: 10px 0;
     color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para contraste */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .hero .cta {
@@ -65,7 +65,7 @@ body {
     background: #2980b9;
 }
 
-/* Project section */
+/* Projects section */
 .projects {
     max-width: 800px;
     margin: 40px auto;
@@ -128,8 +128,8 @@ body {
     color: #555;
 }
 
-/* Resume section */
-.resume {
+/* Resume and Contact sections */
+.resume, .contact {
     text-align: center;
     margin: 50px auto;
 }
@@ -150,17 +150,6 @@ body {
     background: #2980b9;
 }
 
-/* Contact section */
-.contact {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.contact p {
-    font-size: 18px;
-    font-weight: bold;
-}
-
 /* Footer styles */
 footer {
     text-align: center;
@@ -169,10 +158,6 @@ footer {
     padding: 10px 0;
     margin-top: 30px;
     font-size: 14px;
-}
-
-footer .socials {
-    margin-top: 10px;
 }
 
 footer .socials a {
@@ -186,7 +171,7 @@ footer .socials a:hover {
     color: #2980b9;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .projects li {
         width: 100%;
@@ -199,4 +184,33 @@ footer .socials a:hover {
     .hero p {
         font-size: 1rem;
     }
+}
+
+/* New Sections for Deep Learning and Freelancing */
+#deep-learning, #freelancing {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#freelancing ul {
+    padding: 0;
+    list-style: none;
+}
+
+#freelancing li {
+    margin-bottom: 20px;
+}
+
+#freelancing h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#freelancing p {
+    font-size: 1rem;
+    color: #555;
 }
